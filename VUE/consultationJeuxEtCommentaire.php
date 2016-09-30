@@ -24,8 +24,8 @@ $pageConsultationJetC->contenu = '<section>
 					<tr><th>Nom du jeu</th><th>ann&eacute;e de sortie</th><th>&eacute;diteur</th></tr>';
 //parcours du résultat de la requete
 foreach ($listeJV as $unJV){
-					$pageConsultationJetC->contenu .= '<tr><td>'.$unJV->NOMJV.'</td><td>'.$unJV->ANNEESORTIE.'</td><td>'.$unJV->EDITEUR.'</td>
-					<td><input type="radio" onclick="jsClickRadioButton();" name="nomidjv"  id="'. $unJV->IDJV.'"  value="'. $unJV->IDJV.'" /></td></tr>';
+					$pageConsultationJetC->contenu .= '<tr><td>'.$unJV->NomJV.'</td><td>'.$unJV->ANNEESORTIE.'</td><td>'.$unJV->EDITEUR.'</td>
+					<td><input type="radio" onclick="jsClickRadioButton();" name="nomidjv"  id="'. $unJV->IdJV.'"  value="'. $unJV->IdJV.'" /></td></tr>';
 }
 $listeJV->closeCursor (); // pour libérer la mémoire occupée par le résultat de la requête
 $listeJV = null; // pour une autre exécution avec cette variable

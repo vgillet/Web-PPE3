@@ -21,16 +21,16 @@ if (isset ( $_POST ['email'] ) && isset ( $_POST ['pseudo'] )) {
 		$msgERREUR = "ERREUR : votre email et/ou pseudo ne sont pas valides ! :" ;
 	} else {
 		//un seul tuple donc inutile de faire un foreach, on prend juste le tuple courant
-		$idU = $resultU->fetch()->IDU ;
+		$idU = $resultU->fetch()->IdU ;
 		
-		if (isset ( $_POST ['radioJV'] ) && isset ( $_POST ['comments'] ) && isset ( $_POST ['agree'] )) {
+		if (isset ( $_POST ['listJV'] ) && isset ( $_POST ['comments'] ) && isset ( $_POST ['agree'] )) {
 			// ajout du commentaire en récupérant l'Id du jeu (ici dans radioJV)
 			$modeleCom = new CommentaireModele ();
 			try {
 				//pour traiter les eventuelles apostrophes dans la chaine des commentaires
 				$chaineCommentaire = addslashes($_POST ['comments']);
 				
-				$nb = $modeleCom->add ( $idU, $_POST ['radioJV'], $chaineCommentaire );
+				$nb = $modeleCom->add ( $idU, $_POST ['listJV'], $chaineCommentaire );
 				$msgERREUR = "SUCCESS : AJOUT du commentaire reussi";
 			} catch ( PDOException $pdoe ) {
 				// cas ou 2 pseudo ont deja mis un commentaire sur un jeu
